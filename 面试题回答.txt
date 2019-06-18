@@ -1,0 +1,110 @@
+https://github.com/haizlin/fe-interview/blob/master/category/history.md
+
+
+
+1.用递归算法实现，数组长度为5且元素的随机数在2-32间不重复的值
+var arr = new Array(5);
+var num = random ();
+var i = 0;
+// 递归就是在函数自身内部调用自身
+function random () {
+  return Math.floor(Math.random() * (32 - 2) + 2);
+}
+randomArr(arr, num, i)
+console.log(arr);
+function randomArr(arr, num, i) {
+  if (i === 5) {
+    return
+  }
+  if (!arr.includes(num)) {
+    arr[i] = num;
+    i++;
+  }
+  num = random ();
+  randomArr(arr, num, i)
+}
+
+
+2.写一个方法去掉字符串中的空格
+var str = "   feajf ilan faefil anf aefn  alef ";
+// 去除所有空格
+function trim () {
+  var reg = /\s+/g;
+  return str.replace(reg,"");
+}
+
+
+
+3.去除指定字符
+var str = "jfeilajfilafiahflhalisfaehfaiehf";
+function removeStr (str, rStr) {
+  var lastIndex = str.lastIndexOf(rStr);
+  return str.slice(0,lastIndex);
+}
+
+
+4.写一个方法把下划线命名转成大驼峰命名
+var underLine = "sub_string_is_a_js_fn";
+function toCamel (underLine, symbol) {
+  var arr = underLine.split(symbol);
+  var newArr = [];
+  for (var i = 1; i < arr.length; i++) {
+    newArr.push(arr[i][0].toUpperCase()+arr[i].slice(1));
+  }
+  var camel = arr[0].concat(newArr.join(""));
+}
+
+
+5.写一个把字符串大小写切换的方法(没想到更好的方法)
+var str = "joeFfao诶哦啊FJE个人股ANefa";
+var newStr = "";
+toggle(str)
+function toggle (str) {
+  for(var i = 0; i < str.length; i++) {
+    if (90 > str.charCodeAt(i) && str.charCodeAt(i) > 65) {
+      newStr += str[i].toLowerCase();
+      continue
+    }
+    if ( 122 > str.charCodeAt(i) && str.charCodeAt(i) > 97) {
+      newStr += str[i].toUpperCase();
+      continue
+    }
+    else {
+      newStr += str[i];
+      continue
+    }
+  }
+}
+
+
+6.写一个去除制表符和换行符的方法
+var str = "\t房间诶啊\t发窘二胺\nfjioeanfio";
+var s = str.replace(/(\t)|(\n)/g, "");
+
+
+
+7.统计某一字符或字符串在另一个字符串中出现的次数
+function count (str, tar) {
+  var num = 0;
+  while (str.includes(tar)) {
+    var index = str.indexOf(tar);
+    num++;
+    str = str.substring(index + tar.length);
+  }
+  return num;
+}
+var count = str.split(tar).length - 1
+
+
+8.写一个加密字符串的方法
+decodeURIComponent(str);
+
+
+9.判断类型
+首先用typeOf判断基础类型
+再用instance判断机体类型
+
+
+10.回调函数
+就是把一个函数作为一个参数传给某个函数并调用
+就简单的就是addEventListen添加事件监听
