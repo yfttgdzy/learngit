@@ -108,3 +108,21 @@ decodeURIComponent(str);
 10.回调函数
 就是把一个函数作为一个参数传给某个函数并调用
 就简单的就是addEventListen添加事件监听
+
+
+11.js内置对象
+本地对象：Number,String,Array,Boolean,Object,Funciton,Error,Date,RegExp
+内置对象：Math,Global,JSON
+宿主对象：Dom,Bom
+
+
+12.写一个获取当前url查询字符串中的参数的方法
+function getQuery () {
+  var search = location.search.slice(1);
+  var searchArr = search.split("&");
+  var queryObj = new Object();
+  for (var i=0;i<searchArr.length;i++) {
+    queryObj[searchArr[i].split("=")[0]] = searchArr[i].split("=")[1];
+  }
+  return queryObj;
+}
