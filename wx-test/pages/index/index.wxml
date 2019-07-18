@@ -1,0 +1,13 @@
+<!--index.wxml-->
+<view class="container">
+  <!-- <navigator url="../logs/logs?id=177">logs</navigator> -->
+  <view class="img-box" wx:if="{{imgs}}">
+    <view class="img-list" wx:for="{{imgs}}" wx:key="{{index}}">
+      <image data-index="{{index}}" data-src="{{item}}" src="{{item}}" bindtap="preview"></image>
+      <button class="close" data-index="{{index}}" catchtap="remove">
+        <image src="../../images/close.png"></image>
+      </button>
+    </view>
+  </view>
+  <button bindtap="chooseImg">上传图片</button>
+</view>
